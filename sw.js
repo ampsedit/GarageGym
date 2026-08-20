@@ -1,5 +1,5 @@
-const CACHE = 'garage-gym-v8';
-const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
+const CACHE = 'garage-gym-v9';
+const ASSETS = ['./', './index.html', './images.js', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
@@ -19,7 +19,6 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     fetch(e.request)
       .then((res) => {
-        // only ever cache a good response - a cached 404 is permanent poison
         if (res && res.ok && res.type === 'basic') {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
