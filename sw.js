@@ -1,4 +1,4 @@
-const CACHE = 'garage-gym-v26';
+const CACHE = 'garage-gym-v27';
 const ASSETS = ['./', './index.html', './images.js', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {
